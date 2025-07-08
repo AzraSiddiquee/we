@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Select Inner Height - CKS</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8 url('https://www.cksindia.co.in/images/cks-cable/slider/sslider-3.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #222;
+        }
+
+        header {
+            background: #2b2a29;
+            color: #f3c308;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 10px 0 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav a {
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            display: block;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background: #DAA510;
+        }
+
+        nav ul li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 10px 0;
+            border-radius: 6px;
+            min-width: 220px;
+            z-index: 999;
+            display: none;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 16px;
+            white-space: nowrap;
+            display: block;
+            color: white;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #2b2a10;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2b2a10;
+            margin-bottom: 20px;
+        }
+
+        .step-indicator {
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            text-decoration: none;
+            color: #222;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            margin: 0;
+            color: #2b2a10;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CKS Cable Solutions</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="select-carrier-type.htm">Select Carrier Type</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h2>Select Inner Height</h2>
+    <div class="step-indicator">Step 2 of 5</div>
+    <div id="content" class="grid">
+        <!-- Height options will be inserted here -->
+    </div>
+</main>
+
+<script>
+    const queryParams = new URLSearchParams(window.location.search);
+    const type = queryParams.get("type")?.toLowerCase() || "";
+
+    const contentDiv = document.getElementById("content");
+
+    const heightMap = {
+        "polymer": [7, 10, 15, 20, 24, 25, 28, 35, 40, 42, 50, 60, 80],
+        "steel": [22, 30, 60, 75, 110, 180, 250],
+        "polymer-aluminium-stay": [45, 60, 75]
+    };
+
+    const heights = heightMap[type];
+
+    if (!heights || heights.length === 0) {
+        contentDiv.innerHTML = `<p style="text-align:center; color: red;">No inner height options found for: <strong>${type}</strong>.</p>`;
+    } else {
+        heights.forEach(height => {
+            const link = document.createElement("a");
+            link.className = "card";
+            link.href = `select-carrier-model.html?type=${type}&height=${height}`;
+            link.innerHTML = `<h3>${height} mm</h3>`;
+            contentDiv.appendChild(link);
+        });
+    }
+</script>
+
+
+</body>
+</html>

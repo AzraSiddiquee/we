@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Part Number - CKS</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f0f4f8  url('https://www.cksindia.co.in/images/cks-cable/slider/sslider-3.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #222;
+        }
+
+        header {
+             background: #2b2a29;
+            color: #f3c308;
+            padding: 15px 30px;
+            position : sticky;
+            top: 0;
+            z-index: 1000;
+            }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .part-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2b2a10;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .flexbox {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 230px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            text-align: left;
+        }
+
+        .info-card h3 {
+            font-size: 1rem;
+            margin: 0 0 10px;
+            color: #f3c308;
+        }
+
+        .info-card p {
+            margin: 0;
+            color: #333;
+        }
+
+        .product-image {
+            max-width: 300px;
+            border-radius: 12px;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .btn-group {
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            margin: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn.back {
+            background: #eee;
+            color: #333;
+        }
+
+        .btn.details {
+            background:#f3c308;
+            color: #2b2a29;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 20px;
+            margin-top: 60px;
+            background: #2b2a29;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CKS Cable Solutions</h1>
+</header>
+
+<main>
+    <div id="partDisplay" class="part-title">Loading...</div>
+    <p class="description">Select Carrier button helps you select the product you require, and view detailed information and access images of it.</p>
+
+
+    <div class="btn-group">
+        <button class="btn back" onclick="history.back()">Back to Select Carrier</button>
+        <button class="btn details">Product Details</button>
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 CKS Cable Solutions. All rights reserved.
+</footer>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type")?.toUpperCase() || "CK";
+    const height = params.get("height") || "?";
+    const model = params.get("model") || "?";
+    const width = params.get("width") || "?";
+    const radius = params.get("radius") || "?";
+
+    const prefix = type === "STEEL" ? "CS" : "CK";
+    const partNo = `${prefix}${height}${model} ${width} R ${radius}`;
+    document.getElementById("partDisplay").textContent = partNo;
+</script>
+
+</body>
+</html>

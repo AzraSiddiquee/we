@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Select Carrier Type </title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8 url('https://www.cksindia.co.in/images/cks-cable/slider/sslider-3.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #222;
+    }
+    header {
+      background : #2b2a29;
+      color: #f3c308;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 10px 0 0;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav a {
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      display: block;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      background: #DAA501 ;
+
+    }
+
+    nav ul li ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(0, 0, 0, 0.95);
+      padding: 10px 0;
+      border-radius: 6px;
+      min-width: 220px;
+      z-index: 999;
+      display: none;
+    }
+
+    nav ul li ul li a {
+      padding: 10px 16px;
+      white-space: nowrap;
+      display: block;
+      color: white;
+    }
+
+    nav ul li ul li a:hover {
+      background-color: #2b2a10;
+    }
+
+    nav ul li:hover > ul {
+      display: block;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      padding: 30px;
+    }
+       h2 {
+      text-align: center;
+      color: #2b2a10;
+      margin-bottom: 20px;
+    }
+
+    .step-indicator {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 20px;
+      text-decoration: none;
+      color: #222;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      max-height: 140px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color:#2b2a29 ;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CKS Cable Solutions</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="has-dropdown">
+        <a href="#">Our Products</a>
+        <ul>
+          <li><a href="#drag-chains">Drag Chains</a></li>
+          <li><a href="#crd">Cable Reeling Drums</a></li>
+          <li><a href="#cables">Cables</a></li>
+          <li><a href="#conduit-pipes">Conduit Pipes</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">Select Your Carrier</a>
+        <ul>
+          <li><a href="select-carrier-type.htm">Select Carrier Type</a></li>
+          <li><a href="select-inner-height.html">(A) Select Inner Height</a></li>
+          <li><a href="select-carrier-model.html">Select Carrier Model</a></li>
+          <li><a href="select-inner-width.html">(B) Select Inner Width</a></li>
+          <li><a href="select-radius.html">(R) Select Radius</a></li>
+        </ul>
+      </li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<main>
+  <h2>Select Carrier Type</h2>
+  <div class="step-indicator">Step 1 of 5</div>
+
+  <div class="grid">
+    <a href="select-inner-height.html?type=polymer">
+      <h3>Polymer Cable Carrier</h3>
+
+    </a>
+    <a href="select-inner-height.html?type=steel ">
+      <h3>Steel Cable Carrier</h3>
+
+    </a>
+    <a href="select-inner-height.html?type=polymer-aluminium-stay">
+      <h3>Polymer Cable Carrier with Aluminium Stay</h3>
+
+    </a>
+  </div>
+</main>
+
+<script>
+  // Mobile dropdown toggle
+  const navItems = document.querySelectorAll("nav ul > li.has-dropdown");
+  navItems.forEach(item => {
+    const link = item.querySelector("a");
+    const submenu = item.querySelector("ul");
+
+    link.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        navItems.forEach(i => {
+          if (i !== item) i.classList.remove("open");
+        });
+        item.classList.toggle("open");
+      }
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest("nav")) {
+      navItems.forEach(i => i.classList.remove("open"));
+    }
+  });
+</script>
+
+</body>
+</html>

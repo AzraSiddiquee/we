@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CKS Cable Solutions</title>
+
+     <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f3c308;
+            background-size: cover;
+            color: black;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: white;
+            color: #222 ;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 10px 0 0;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav a {
+            color: black;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            display: block;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background: #DAA501;
+        }
+
+        nav ul li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 10px 0;
+            border-radius: 6px;
+            min-width: 220px;
+            z-index: 999;
+            display: none;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 16px;
+            white-space: nowrap;
+            display: block;
+            color: #f9f9f9;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #f3c308;
+        }
+
+
+
+        .about-section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    gap: 30px;
+    width: 100%;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 280px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        h2 {
+            color: #2b2a29;
+            margin-bottom: 20px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            gap: 25px;
+            }
+
+
+        .box {
+            background: #f8f9f9;
+            box-shadow: 0 6px 15px rgb(0 0 0 / 0.12);
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    display: block;
+    background: none;
+}
+
+
+        .box-content {
+            padding: 15px 18px;
+        }
+
+
+        /* CRD Slider */
+        .slider {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 20px;
+        }
+
+        .slide {
+            flex: 0 0 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            background: #f4f4f4;
+        }
+
+        .slider .box-content {
+            padding: 15px;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+        }
+
+        .nav-prev { left: 10px; }
+
+        .nav-next { right: 10px; }
+
+        .phone {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            gap: 10px;
+            padding: 10px 20px;
+            background: #f7f9fc;
+            color: #2b2a29;
+            border-bottom: 1px solid #ccc;
+            }
+
+        .phone a {
+            color: #222;
+            text-decoration: none;
+            font-weight: 600;
+            }
+
+        .phone a:hover {
+            text-decoration: underline;
+            }
+
+        .phone .divider {
+            color: #888;
+            }
+            /* ABOUT US SECTION */
+        .about-section {
+            background: #f3c308);
+            padding: 40px 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 1200px;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .about-text h2 {
+            color: #2b2a29;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 18px;
+            background: #f3c308;
+            color: #222;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .read-more-btn:hover {
+            background: #e3b400;
+        }
+
+        .sidebar {
+                position: fixed;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 10px;
+                z-index: 1000;
+                }
+
+            .sidebar a i {
+                font-size: 24px;
+                color: #0077b5; /* Default LinkedIn blue */
+                background: #fff;
+                border-radius: 50%;
+                padding: 10px;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+                transition: transform 0.3s;
+                   }
+
+            .sidebar a:hover i {
+                transform: scale(1.2);
+                }
+
+        /* Optional: Use platform-specific colors */
+        .sidebar .facebook i { color: #3b5998; }
+        .sidebar .linkedin i { color: #0077b5; }
+        .sidebar .youtube i { color: #FF0000; }
+        .sidebar .whatsapp i { color: #25D366; }
+        .sidebar .instagram i {color: #C13584 ;}
+
+
+       @media (max-width: 768px) {
+    .phone {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .phone .divider {
+        display: none;
+    }
+
+       .about-content {
+            flex-direction: column;
+            text-align: center;
+            }
+
+       .about-text h2 {
+        text-align: center;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CKS Cable Solutions</h1>
+    <nav>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+
+            <li class="has-dropdown">
+                <a href="#">Our Products</a>
+                <ul>
+                    <li><a href="#drag-chains">Drag Chains</a></li>
+                    <li><a href="#crd">Cable Reeling Drums</a></li>
+                    <li><a href="#cables">Cables</a></li>
+                    <li><a href="#conduit-pipes">Conduit Pipes</a></li>
+                </ul>
+            </li>
+
+            <li class="has-dropdown">
+                <a href="#">Select Your Carrier</a>
+                <ul>
+                    <li><a href="select-carrier-type.htm">Select Carrier Type</a></li>
+                    <li><a href="select-inner-height.html">(A) Select Inner Height</a></li>
+                    <li><a href="select-carrier-model.html">Select Carrier Model</a></li>
+                    <li><a href="select-inner-width.html">(B) Select Inner Width</a></li>
+                    <li><a href="select-radius.html">(R) Select Radius</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class= "phone">
+    <a href="tel:+91-74282 07250">📞 +91-74282 07250</a>
+    <span class="divider">|</span>
+    <a href="sales@cksindia.co.in"> sales@cksindia.co.in</a>, <a href="mailto:cranes@cksindia.co.in">cranes@cksindia.co.in</a></li>
+</div>
+
+</header>
+
+<main>
+
+<!-- About Us Section -->
+<section id="about" class="about-section">
+    <div class="about-wrapper">
+        <h2 class="about-title">About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p><strong>CKS Cable Solutions</strong> is a trusted manufacturer and supplier of advanced cable management systems including drag chains, cable reeling drums, industrial cables, and conduit pipes. We’re driven by engineering excellence and a passion for delivering reliable and customized solutions across industries.</p>
+                <p>Our skilled team ensures every product is crafted with precision and built for performance. Whether you need standard components or fully customized systems, CKS delivers with confidence and care.</p>
+                <a href="about.html" class="read-more-btn">Read More</a>
+            </div>
+            <div class="about-image">
+                <img src="Images/image1.JPG" alt="CKS Facility">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- Drag Chains -->
+    <section id="drag-chains">
+        <h2>Drag Chains</h2>
+        <div class="category-grid">
+            <a href="plastic-light-series.html" class="box">
+                <img src="Images/light-series.JPG" alt="Polymer Light Series">
+                <div class="box-content">
+                    <h3>Polymer Light Series</h3>
+                    <p>Lightweight drag chains for light-duty machines.</p>
+                </div>
+            </a>
+            <a href="plastic-medium-series.html" class="box">
+                <img src="Images/medium-series.JPG" alt="Polymer Medium Series">
+                <div class="box-content">
+                    <h3>Polymer Medium Series</h3>
+                    <p>For medium-duty automation and movement control.</p>
+                </div>
+            </a>
+            <a href="plastic-heavy-series.html" class="box">
+                <img src="Images/heavy-series.JPG" alt="Polymer Heavy Series">
+                <div class="box-content">
+                    <h3>Polymer Heavy Series</h3>
+                    <p>Heavy-duty plastic drag chains (CK40K, CK60K, etc.).</p>
+                </div>
+            </a>
+            <a href="heavy-series-aluminium-frame.html" class="box">
+                <img src="https://www.cksindia.co.in/images/dragchains/heavy-series-aluminium-frame.jpg" alt="Aluminium Frame Drag Chains">
+                <div class="box-content">
+                    <h3>Aluminium Frame Series</h3>
+                    <p>Drag chains with heavy-duty aluminium framing.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- CRD Section (Slider) -->
+    <section id="crd">
+        <h2>Cable Reeling Drums</h2>
+        <div class="slider">
+            <button class="nav-btn nav-prev">&#8592;</button>
+            <div class="slides">
+                <a href="motorised-cable-reels.html" class="slide">
+                    <img src="https://www.cksindia.co.in/images/cable-reeling-drums/motorised-cable-reels.jpg" alt="Motorised Reels">
+                    <div class="box-content"><h3>Motorised Reels</h3><p>Automatic winding and unwinding.</p></div>
+                </a>
+                <a href="spring-cable-reels.html" class="slide">
+                    <img src="https://www.cksindia.co.in/images/cable-reeling-drums/spring-cable-reels.jpg" alt="Spring Cable Reels">
+                    <div class="box-content"><h3>Spring Reels</h3><p>Reliable spring-powered cable handling.</p></div>
+                </a>
+                <a href="slip-ring-assemblies.html" class="slide">
+                    <img src="https://www.cksindia.co.in/images/cable-reeling-drums/slip-ring-assemblies.jpg" alt="Slip Ring Assemblies">
+                    <div class="box-content"><h3>Slip Ring Assemblies</h3><p>Rotating electrical connections.</p></div>
+                </a>
+                <a href="hose-reels.html" class="slide">
+                    <img src="https://www.cksindia.co.in/images/cable-reeling-drums/hose-reels.jpg" alt="Hose Reels">
+                    <div class="box-content"><h3>Hose Reels</h3><p>Flexible hose management solutions.</p></div>
+                </a>
+                <a href="rope-reels.html" class="slide">
+                    <img src="https://www.cksindia.co.in/images/cable-reeling-drums/rope-reels.jpg" alt="Rope Reels">
+                    <div class="box-content"><h3>Rope Reels</h3><p>Rope storage and distribution systems.</p></div>
+                </a>
+                <a href="counterweight-reels.html" class="slide">
+                    <img src="https://www.cksindia.co.in/images/cable-reeling-drums/counterweight-reels.jpg" alt="Counterweight Reels">
+                    <div class="box-content"><h3>Counterweight Reels</h3><p>Balanced drum systems.</p></div>
+                </a>
+                <a href="accessories.html" class="slide">
+                    <img src="https://www.cksindia.co.in/images/cable-reeling-drums/accessories.jpg" alt="Accessories">
+                    <div class="box-content"><h3>Accessories</h3><p>Spare parts and custom kits.</p></div>
+                </a>
+            </div>
+            <button class="nav-btn nav-next">&#8594;</button>
+        </div>
+    </section>
+
+    <!-- Cables -->
+    <section id="cables">
+        <h2>Cables</h2>
+        <p>Industrial-grade power and control cables for automation.</p>
+    </section>
+
+    <!-- Conduit Pipes -->
+    <section id="conduit-pipes">
+        <h2>Conduit Pipes</h2>
+        <p>Durable conduit pipes for cable protection and routing.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="phone">
+        <h2>Contact Us</h2>
+        <p>Email: <a href= "mailto:sales@cksindia.co.in"> sales@cksindia.co.in</a><br><a href="mailto:cranes@cksindia.co.in">cranes@cksindia.co.in</a></p>
+        <p>Phone: <a href= "tel:+91-74282 07250">+91-74282 07250</a></p>
+    </section>
+
+</main>
+
+<!-- Dropdown JS for mobile and desktop (no flicker!) -->
+<script>
+    document.querySelectorAll('nav ul > li.has-dropdown').forEach(item => {
+        const trigger = item.querySelector('a');
+        const submenu = item.querySelector('ul');
+
+        // Mobile click toggle
+        trigger.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                item.classList.toggle('open');
+            }
+        });
+
+        // Desktop hover toggle with delay fix
+        if (window.innerWidth > 768) {
+            let timer;
+            item.addEventListener('mouseenter', () => {
+                clearTimeout(timer);
+                submenu.style.display = 'block';
+            });
+            item.addEventListener('mouseleave', () => {
+                timer = setTimeout(() => {
+                    submenu.style.display = 'none';
+                }, 150);
+            });
+        }
+    });
+
+    // Close dropdown if clicking outside (mobile)
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest("nav")) {
+            document.querySelectorAll("nav ul > li.open").forEach(i => i.classList.remove("open"));
+        }
+    });
+
+    (() => {
+    const slidesContainer = document.querySelector('.slides');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.nav-prev');
+    const nextBtn = document.querySelector('.nav-next');
+    let slideWidth = slides[0].getBoundingClientRect().width + 20;
+    let slideIndex = 0;
+
+    function updateSlidePosition() {
+        slidesContainer.style.transform = `translateX(${-slideIndex * slideWidth}px)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (slideIndex > 0) {
+            slideIndex--;
+            updateSlidePosition();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (slideIndex < slides.length - 3) {
+            slideIndex++;
+            updateSlidePosition();
+        }
+    });
+
+    // Swipe Support
+    let startX = 0;
+    let isSwiping = false;
+
+    slidesContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isSwiping = true;
+    });
+
+    slidesContainer.addEventListener('touchend', (e) => {
+        if (!isSwiping) return;
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        if (diff > 50) nextBtn.click();
+        else if (diff < -50) prevBtn.click();
+        isSwiping = false;
+    });
+
+    // Autoplay every 4 seconds
+    setInterval(() => {
+        slideIndex = (slideIndex + 1) % (slides.length - 2);
+        updateSlidePosition();
+    }, 4000);
+
+    window.addEventListener("resize", () => {
+        slideWidth = slides[0].getBoundingClientRect().width + 20;
+        updateSlidePosition();
+    });
+})();
+</script>
+
+
+<div class="sidebar">
+    <a class="facebook" href="https://www.facebook.com/profile.php?id=61577101966378" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+    <a class="instagram" href="https://www.instagram.com/cks_cablesolutions/" target="_blank">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a class="whatsapp" href="https://wa.me/919876543210" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a class="youtube" href="https://www.youtube.com/@cksindia8568" target="_blank">
+        <i class="fab fa-youtube"></i>
+    </a>
+    <a class="linkedin" href="https://www.linkedin.com/company/cks-cablesolutions" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+</div>
+
+
+
+</body>
+</html>
