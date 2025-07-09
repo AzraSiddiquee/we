@@ -8,7 +8,7 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            background-color: #f0f4f8  url('https://www.cksindia.co.in/images/cks-cable/slider/sslider-3.png') no-repeat center center fixed;
+            background-color: #f3c308;
             background-size: cover;
             color: #222;
         }
@@ -26,6 +26,75 @@
             font-size: 1.8rem;
             margin: 0;
         }
+
+         nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 10px 0 0;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav a {
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            display: block;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background: #DAA501;
+        }
+
+        nav ul li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 10px 0;
+            border-radius: 6px;
+            min-width: 220px;
+            z-index: 999;
+            display: none;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 16px;
+            white-space: nowrap;
+            display: block;
+            color: #f9f9f9;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #f3c308;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+        }
+
+        .nav-prev { left: 10px; }
+
+        .nav-next { right: 10px; }
 
         main {
             max-width: 1000px;
@@ -122,6 +191,35 @@
 
 <header>
     <h1>CKS Cable Solutions</h1>
+     <nav>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+
+            <li class="has-dropdown">
+                <a href="#">Our Products</a>
+                <ul>
+                    <li><a href="#drag-chains">Drag Chains</a></li>
+                    <li><a href="#crd">Cable Reeling Drums</a></li>
+                    <li><a href="#cables">Cables</a></li>
+                    <li><a href="#conduit-pipes">Conduit Pipes</a></li>
+                </ul>
+            </li>
+
+            <li class="has-dropdown">
+                <a href="#">Select Your Carrier</a>
+                <ul>
+                    <li><a href="select-carrier-type.htm">Select Carrier Type</a></li>
+                    <li><a href="select-inner-height.html">(A) Select Inner Height</a></li>
+                    <li><a href="select-carrier-model.html">Select Carrier Model</a></li>
+                    <li><a href="select-inner-width.html">(B) Select Inner Width</a></li>
+                    <li><a href="select-radius.html">(R) Select Radius</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
 </header>
 
 <main>
@@ -133,6 +231,40 @@
         <button class="btn back" onclick="history.back()">Back to Select Carrier</button>
         <button class="btn details">Product Details</button>
     </div>
+
+
+    <section id="enquiry-form" style="margin-top: 40px; background:  #ECECEC; padding: 50px; border-radius: 10px;">
+    <h2 style="margin-bottom: 20px;">Enquiry Now</h2>
+    <form action="submit-form.php" method="post" style="display: flex; flex-direction: column; gap: 15px; max-width: 600px;">
+
+        <!-- Part Number Field (Read-only) -->
+
+        <label>
+            Company Name:
+            <input type="text" name="company_name" required style="width: 100%; padding: 10px;">
+        </label>
+
+        <label>
+            Contact Number:
+            <input type="tel" name="contact_number" required style="width: 100%; padding: 10px;">
+        </label>
+
+        <label>
+            Address:
+            <textarea name="address" rows="3" required style="width: 100%; padding: 10px;"></textarea>
+        </label>
+
+        <label>
+            Email ID:
+            <input type="email" name="email" required style="width: 100%; padding: 10px;">
+        </label>
+
+        <button type="submit" style="padding: 12px 20px; background: #f3c308; border: none; font-weight: bold; color: #222; border-radius: 6px; cursor: pointer;">
+            Submit Enquiry
+        </button>
+    </form>
+</section>
+
 </main>
 
 <footer>
@@ -151,6 +283,8 @@
     const partNo = `${prefix}${height}${model} ${width} R ${radius}`;
     document.getElementById("partDisplay").textContent = partNo;
 </script>
+
+
 
 </body>
 </html>
